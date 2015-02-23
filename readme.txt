@@ -9,7 +9,7 @@ The only plugin that can properly audit your themes and plugins for LARGE multis
 
 == Description ==
 
-The Multisite Order gives details on which sites are using which themes and which plugins. The only plugin that works on large mulitsite installs.
+The Multisite Auditor gives details on which sites are using which themes and which plugins. The only plugin that works on large mulitsite installs.
 
 
 **Features**
