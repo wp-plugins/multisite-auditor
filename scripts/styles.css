@@ -1,0 +1,105 @@
+table.dataTable thead{text-align:left ;}
+.DataTables_sort_icon  {display:none;}
+
+table.dataTable td {border-bottom:1px solid #ccc ;}
+
+.ui-buttonset .ui-button
+{
+	padding:5px;
+}
+.ui-widget-header{
+	padding-left:10px;
+}
+
+.tableError td
+{
+	background:#FCF2F2;	
+}
+
+.tableOK td
+{
+	background:#F0FFF0;	
+}
+
+
+.tableQuery td
+{
+	background:#FFF3E0;	
+}
+
+
+.failText
+{
+	color:#C00;	
+}
+
+.successText
+{
+	color:#360;
+}
+div.error, div.updated
+{
+	padding:15px;
+	margin:0px;
+}
+
+
+td.tdActive
+{
+	border-left: 4px solid #2ea2cc !important;
+	
+}
+tr.active
+{
+	background:#f7fcfe !important;
+}
+
+div.infoDiv
+{
+	padding-left:0px;
+	margin-bottom:20px;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+	margin-right:30px;
+}
+
+div.infoDiv .content
+{
+	padding-left:20px
+}
+
+div.infoDiv h3
+{
+margin-top:0px;
+margin-left:0px;
+background:#333;
+color:#fff;
+border-top-left-radius: 25px;
+padding:10px 0px 10px 20px;
+
+}
+
+
+#rerunAuditBox
+{
+	float:right;
+	margin-right:35px;
+	border:solid 1px #ccc;
+	border-radius: 12px;
+	padding:8px;
+	margin-bottom:20px;
+	text-align:right;
+	line-height:30px;
+	background:#EFF7E8;
+}
+
+
+.smallText
+{
+	font-size:10px;	
+}
+
+.greyText
+{
+	color:#666;	
+}
