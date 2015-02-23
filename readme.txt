@@ -1,4 +1,4 @@
-=== Multisite-Auditor ===
+=== Multisite Auditor ===
 Contributors: alexfurr, simon.ward
 Tags: themes, plugins, multisite, themes, plugins, admin, network, plugin management, theme management
 Requires at least: 3.0
