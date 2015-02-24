@@ -3,6 +3,7 @@
 
 $MSA_runFunctions = new MSA_functions(); 
 
+
 class MSA_functions
 {
 	
@@ -15,7 +16,10 @@ class MSA_functions
 		
 		// When any plugin is activated
 		add_action( 'activated_plugin', array($this, 'MSA_detectPluginActivation' ), 10, 2 );	
-		add_action( 'deactivated_plugin', array($this, 'MSA_detectPluginDeactivation' ), 10, 2 );			
+		add_action( 'deactivated_plugin', array($this, 'MSA_detectPluginDeactivation' ), 10, 2 );	
+		
+
+				
 				
     }	
 	
@@ -36,6 +40,7 @@ class MSA_functions
 	function MSA_detectPluginDeactivation(  $pluginName, $network_activation )
 	{
 		global $wpdb;		
+		
 		if($network_activation<>1)
 		{		
 			// Get the actual plugin folder name
@@ -46,7 +51,8 @@ class MSA_functions
 			
 			$table_name = $wpdb->base_prefix . "MSA_plugins";
 			// Delete the old data on the first page run
-			$RunQry = $wpdb->query( $wpdb->prepare(	'DELETE FROM '.$table_name.' WHERE blogID='.$blogID.' AND pluginName = "'.$pluginName.'"' ));		
+			$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID=%d AND pluginName = %s';
+			$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL, $blogID, $pluginName ));
 		}
 		
 	}		
@@ -62,12 +68,13 @@ class MSA_functions
 	{
 		global $wpdb;		
 		$table_name = $wpdb->base_prefix . "MSA_themes";					
-		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = '.$blogID;	
-		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL  ));
+		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = %d';
+		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL  , $blogID));
+		
 		
 		$table_name = $wpdb->base_prefix . "MSA_plugins";					
-		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = '.$blogID;	
-		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL  ));
+		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = %d';
+		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL, $blogID  ));
 		
 	}
 	
@@ -123,10 +130,9 @@ class MSA_functions
 		
 		// Delete from theme database any old data about this blog
 		$table_name = $wpdb->base_prefix . "MSA_themes";					
-		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = '.$blogID;	
-
-
-		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL  ));
+		$deleteSQL = 'DELETE FROM '.$table_name.' WHERE blogID = %d';
+		
+		$RunQry = $wpdb->query( $wpdb->prepare(	$deleteSQL, $blogID  ));
 		
 		$myFields="INSERT into ".$table_name." (blogID, themeName, blogName, blogURL, dateCreated, activateDate) ";
 		$myFields.="VALUES (%u, '%s', '%s', '%s', '%s', '%s')";
