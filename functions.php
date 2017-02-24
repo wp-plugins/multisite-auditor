@@ -81,7 +81,7 @@ class MSA_functions
 	function MSA_updateThemeNewBlog($blogID)
 	{
 		$blogInfo = MSA_functions::getBlogInfo($blogID);
-		$this->MSA_addThemeToDB($blogInfo);
+		MSA_functions::MSA_addThemeToDB($blogInfo);
 	}
 	
 	function getBlogTheme($blogID)
